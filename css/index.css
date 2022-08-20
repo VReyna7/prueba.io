@@ -16,25 +16,15 @@
 .imagensita{
     width: 420px;
     height: 400px;
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
 }
 
 .imagen-mision{
-    width: 400px;
+    width: 420px;
     height: 400px;
     clip-path: circle(50% at 50% 50%);
 }
 
-.imagen-container{
-   /* background-color: white;*/
-    width: 500px;
-    height: 100%;
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    margin-left: 80px ;
-    margin-bottom: 40px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
 
 .objetivo-text, .Mision-text{
     display: flex;
@@ -154,16 +144,21 @@
 
     
     .imagensita,.imagen-mision{
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
     }
 
     .Mision{
         padding: 0;
         margin: 0;
+        justify-content: center;
+        text-align: center;
     }
 
     .objetivos{
+        justify-content: center;
+        text-align: center;
         padding: 0;
         margin: 0;
     }
@@ -195,7 +190,7 @@
     .objetivos{
        text-align: center;
     }
-    
+
     .p-objetivos, .p-mision{
         flex-wrap: wrap;
         text-align: center;
