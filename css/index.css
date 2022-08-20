@@ -51,10 +51,11 @@
     width: 100%;
     height: auto;
     margin-top: 12%;
-    padding: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
-    clip-path: polygon(0 0, 100% 6%, 100% 100%, 0 91%);
+
 }
 
 .creadores-box{
@@ -137,10 +138,6 @@
 }
 
 @media screen and (max-width: 560px){
-    *{
-        padding: 0;
-        margin: 0;
-    }
 
     
     .imagensita,.imagen-mision{
@@ -150,10 +147,10 @@
     }
 
     .Mision{
-        padding: 0;
-        margin: 0;
         justify-content: center;
         text-align: center;
+        padding: 0;
+        margin: 0;
     }
 
     .objetivos{
@@ -174,16 +171,10 @@
         margin-top: 0px;
     }
 
-    .Mision{
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-
 }
 
 @media screen and (max-width: 320px){
     .Mision{
-        padding-left: 0;
         text-align: center;
     }
 

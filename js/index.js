@@ -13,22 +13,12 @@ window.sr = ScrollReveal();
     });
 
     sr.reveal(".Mision",{
-        duration: 1000,
+        duration: 2000,
         origin: "left",
-        distance: "-100px"
+        distance: "100px"
     });
 
-    sr.reveal(".Mision-text",{
-        duration: 1000,
-        origin: "left",
-        distance: "-100px"
-    });
 
-    sr.reveal(".Mision-text",{
-        duration: 1000,
-        origin: "left",
-        distance: "-100px"
-    });
 
     sr.reveal(".creadores-cont",{
         duration: 2000,
