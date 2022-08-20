@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(13,110,253,255) !important ;
+} 
+
+
+.objetivos{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 100px;
+    color: white;
+}
+
+.imagensita{
+    width: 300px;
+    height: 320px;
+}
+
+.imagen-container{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    margin-left: 80px ;
+    margin-bottom: 40px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.objetivo-text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.objetivo-h3{
+    margin-bottom: 25px;
+}
+
+.p-objetivos{
+    padding: 45px;
+}
