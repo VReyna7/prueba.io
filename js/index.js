@@ -1,4 +1,5 @@
 window.sr = ScrollReveal();
+
     sr.reveal(".navbar",{
         duration: 3000,
         origin: "bottom",
@@ -6,7 +7,45 @@ window.sr = ScrollReveal();
     });
 
     sr.reveal(".objetivos",{
-        duration: 5000,
+        duration: 2000,
         origin: "bottom",
         distance: "-100px"
     });
+
+    sr.reveal(".Mision",{
+        duration: 1000,
+        origin: "left",
+        distance: "-100px"
+    });
+
+    sr.reveal(".Mision-text",{
+        duration: 1000,
+        origin: "left",
+        distance: "-100px"
+    });
+
+    sr.reveal(".Mision-text",{
+        duration: 1000,
+        origin: "left",
+        distance: "-100px"
+    });
+
+    sr.reveal(".creadores-cont",{
+        duration: 2000,
+        origin: "left",
+        distance: "200px"
+    });
+
+    sr.reveal(".Creadores-h3",{
+        duration: 2000,
+        origin: "bottom",
+        distance: "200px"
+    });
+
+    
+    sr.reveal(".footer",{
+        duration: 2000,
+        origin: "top",
+        distance: "-200px"
+    });
+    

@@ -1,11 +1,8 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
-
-body{
-    background-color: rgba(13,110,253,255) !important ;
-} 
 
 
 .objetivos{
@@ -13,18 +10,24 @@ body{
     flex-direction: row;
     width: 100%;
     margin-top: 100px;
-    color: white;
+    color: rgb(20, 20, 20);
 }
 
 .imagensita{
-    width: 300px;
-    height: 320px;
+    width: 420px;
+    height: 400px;
+}
+
+.imagen-mision{
+    width: 400px;
+    height: 400px;
+    clip-path: circle(50% at 50% 50%);
 }
 
 .imagen-container{
-    background-color: white;
-    width: 300px;
-    height: 300px;
+   /* background-color: white;*/
+    width: 500px;
+    height: 100%;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     margin-left: 80px ;
     margin-bottom: 40px;
@@ -33,18 +36,171 @@ body{
     align-items: center;
 }
 
-.objetivo-text{
+.objetivo-text, .Mision-text{
     display: flex;
     justify-content: center;
     text-align: center;
     width: 100%;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.objetivo-h3{
-    margin-bottom: 25px;
+.objetivo-h3, .Mision-h3{
+    margin-bottom: 20px;
 }
 
-.p-objetivos{
-    padding: 45px;
+.p-objetivos, .p-mision{
+    flex-wrap: wrap;
+    padding-left: 120px;
+    padding-right: 100px;
+}
+
+.Mision{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin-top: 12%;
+    padding: 60px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0 0, 100% 6%, 100% 100%, 0 91%);
+}
+
+.creadores-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*background-color: black;*/
+    color: rgb(0, 0, 0);
+    height: auto;
+    margin-top: 90px;
+    padding: 40px;
+}
+
+.container-creador1,.container-creador2,.container-creador3,.container-creador4,.container-creador5{
+    margin-top: 30px;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.all-creadores{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.creadores-cont{
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 30px;
+}
+
+.Creadores-h3{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: rgb(0, 0, 0);
+}
+
+.nombre-creador{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.container-creador1{
+    background-image: url(../img/fotoperfil.webp);
+}
+
+.container-creador2{
+    background-image: url(../img/fotoperfil.webp);
+}
+
+.container-creador3{
+    background-image: url(../img/fotoperfil.webp);
+}
+
+.container-creador4{
+    background-image: url(../img/fotoperfil.webp);
+}
+
+.container-creador5{
+    background-image: url(../img/fotoperfil.webp);
+}
+
+@media screen and (max-width: 900px){
+    .objetivos{
+        flex-wrap: wrap;
+    }
+
+    .Mision{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 560px){
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    
+    .imagensita,.imagen-mision{
+        width: 100px;
+        height: 100px;
+    }
+
+    .Mision{
+        padding: 0;
+        margin: 0;
+    }
+
+    .objetivos{
+        padding: 0;
+        margin: 0;
+    }
+
+    p{
+        padding: 0;
+        margin: 0;
+    }
+
+    .creadores-cont{
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+    }
+
+    .Mision{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+}
+
+@media screen and (max-width: 320px){
+    .Mision{
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .objetivos{
+       text-align: center;
+    }
+    
+    .p-objetivos, .p-mision{
+        flex-wrap: wrap;
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
 }
