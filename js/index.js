@@ -19,6 +19,11 @@ window.sr = ScrollReveal();
     });
 
 
+    sr.reveal(".bntsPrinc",{
+        duration: 2000,
+        origin: "left",
+        distance: "100px"
+    });
 
     sr.reveal(".creadores-cont",{
         duration: 2000,

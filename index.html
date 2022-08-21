@@ -1,129 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <script src="https://kit.fontawesome.com/7bd74f70b2.js" crossorigin="anonymous"></script>
-    <title>Nova Medic</title>
+    <script src="js/scrollreveal.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>Prueba</title>
 </head>
 <body>
-    <header class="header-box">
-        <i class="fa-solid fa-bars" id="icono-menu"></i>
-         <!--Logo y nombre-->
-        <div class="logo-box">
-            <img src="img/My project.png" class="logo-header">
-            <span class="title-header">NOVA MEDIC</span>
-        </div>
-         <!--Apartado de menu de sesiones-->
-        <nav class="menu" id="menu">
-            <ul class="opciones" >
-                <a href="pages/Sesion/Registro.html" class="link"><li class="options">Registrarse</li></a>
-                <a href="pages/Sesion/IniciarSesión.html" class="link"><li class="options">Iniciar sesión</li></a>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+          <img src="img/My project.png" width="90" height="90" class="d-inline-block align-top" alt="">
+          <a class="navbar-brand fs-4" href="#" >NOVA MEDIC</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="#fondo" >INICIO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="#objetivos" >OBJETIVOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="#misiones">MISION</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="#creadores">CREADORES</a>
+              </li>
             </ul>
-        </nav>
-    
-    </header>
-    
-    <script src="js/menu.js"></script>
-    <div class="container">
-    </div>
-
-    
-    <article class="article-box">
-     <!--Inicio de Objetivos-->
-        <section class="objetivos-box">
-             <!--Titulo-->
-            <h2 class="titles">NUESTRO OBJETIVO</h2>
-            <div class="objetivos-texts">
-            <div class="img-objetivos"><img class="imgOb" src="img/saludapoyada.jpg"></div>
-            <div class="objetivos-li-p">
-             <!--explicación del objetivo -->
-                <p class="p-objetivos">Apoyar a mejorar la administración hospitalaria desde las posibilidades que ofrecen 
-                las nuevas tecnologías, basándose en el proyecto que se le conocerá como Nova 
-                Medic. Nova Medic será una página web que utilizará los medios tecnológicos 
-                necesarios para poder acompañar en la administración hospitalaria desde los 
-                campos que sean posibles, como, por ejemplo: El área de nutrición, psicología, 
-                consultas generales. Tomamos estos 3 puntos como base principal y primaria para 
-                el inicio del proyecto por los siguientes motivos.</p>
-             <!--Lista de objetivos-->
+          </div>
+  
+      </div>
+      </nav>
+      <div class="divfondo" id="fondo">
+        <div class="bntsPrinc">
+          <a href="vistas/sesiones/iniciosesion.html"><button>Iniciar Sesion</button></a>
+          <a href="vistas/sesiones/registro.html"><button>Registro</button></a>
+      </div>
+      </div>
+      
+      <div class="objetivos" id="objetivos">
+        <img src="img/saludapoyada.jpg" class="imagensita">
+        <div class="objetivo-text">
+          <h3 class="display-5 objetivo-h3">Objetivos</h3>
+          <p class="p-objetivos" class="text-center text-wrap" >Apoyar a mejorar la administración hospitalaria desde las posibilidades que ofrecen 
+            las nuevas tecnologías, basándose en el proyecto que se le conocerá como Nova 
+            Medic. Nova Medic será una página web que utilizará los medios tecnológicos 
+            necesarios para poder acompañar en la administración hospitalaria desde los 
+            campos que sean posibles, como, por ejemplo: El área de nutrición, psicología, 
+            consultas generales. Tomamos estos 3 puntos como base principal y primaria para 
+            el inicio del proyecto por los siguientes motivos.</p>
             <ol class="objetivos-ol">
-                <li> Las ramas medicas elegidas pueden ser solucionadas en algunos casos sin
-                    necesidad de un estudio de laboratorio.</li>
-                <li>Casos como la psicología y la nutrición pueden ser tratadas durante sesiones
-                    virtuales, ya sea por chat o por videollamadas</li>
-                <li> Ramas como la psicología y nutrición podrán tener la posibilidad de empezar a 
-                    ser más utilizadas por las personas al poder ser accedidas de manera más sencillas.</li>
-            </ol>
-            </div>
-        </section>
-        <!--Fin de el apartado objetivos -->
-         <!--Inicio de misión-->
-         <section class="mision-box">
-            <h2 class="titles">NUESTRA MISIÓN</h2>
-            <p class="mision-p">No  intentamos ser una tienda online de consultas o venta de 
-                productos médicos. Nova Medic busca ser parte de las posibilidades que las 
-                personas tienen en nuestro país para recibir un diagnostico medico profesional. 
-                Por eso nuestra idea no va por el camino de una empresa privada en ganancias, si 
-                no en una posible org sin fines de lucro o una idea para implementar atreves de 
-                los servicios públicos del gobierno.
-                De esta forma nova Medic busca mejorar el sistema hospitalario, no suplantarlo, 
-                Nova Medic busca ser simplemente otra posibilidad más para poder atentos a 
-                nuestra salud apoyados por la tecnología.</p>
-            <div class="image-mision"><img class="imgMi" src="img/controla_tu_salud.webp"></div>
-         </section>
-         <!--Fin de misión-->
-         <section class="creadores-box">
-            <h2 class="titles">CREADORES</h2>
-        <div class="all-creadores">
-            <div class="creadores-cont">
-                <div class="container-creador1"></div>
-                <h3 class="nombre-creador">creador</h3>
-            </div>
-            <div class="creadores-cont">
-                <div class="container-creador2"></div>
-                <h3 class="nombre-creador">creador</h3>
-            </div>
-            <div class="creadores-cont">
-                <div class="container-creador3"></div>
-                <h3 class="nombre-creador">creador</h3>
-            </div>
-            <div class="creadores-cont">
-                <div class="container-creador4"></div>
-                <h3 class="nombre-creador">creador</h3>
-            </div>
-            <div class="creadores-cont">
-                <div class="container-creador5"></div>
-                <h3 class="nombre-creador">creador</h3>
-            </div>
-        </div>
-         </section>
-    </article>
-    <footer class="footer-box">
-        <div class="pages-footer">
-            <div class="sociales">
-                <img class="sociales-img" src="img/facebook.png">
-                <img class="sociales-img" src="img/instragram.png">
-                <img class="sociales-img" src="img/twitter.png">
-            </div>
-            <div class="contacto">
-                <h3>Correo</h3>
-                <label for="">example@gmail.com</label>
-                <h3>Telefono</h3>
-                <label for="">0000-0000</label>
-            </div>
-            <span><b>NOVA MEDIC DERECHOS RESERVADOR &#169</b></span>
-        </div>
-        <!--
-        <div class="empre" >
-            <img src="../../img/logo2.png" class="sociales-img">
-            <p class="parra">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>-->
-    </footer>
-    
-</body>
+              <li> Las ramas medicas elegidas pueden ser solucionadas en algunos casos sin
+                  necesidad de un estudio de laboratorio.</li>
+              <li>Casos como la psicología y la nutrición pueden ser tratadas durante sesiones
+                  virtuales, ya sea por chat o por videollamadas</li>
+              <li> Ramas como la psicología y nutrición podrán tener la posibilidad de empezar a 
+                  ser más utilizadas por las personas al poder ser accedidas de manera más sencillas.</li>
+          </ol>
+          </div> 
+      </div>
 
+
+    <div class="Mision" id="misiones">
+       <img src="img/imagen45.jpg" class="imagen-mision">
+         <div class="Mision-text">
+          <h3 class="display-5 Mision-h3">Mision</h3>
+          <p class="p-mision" class="text-center ">No  intentamos ser una tienda online de consultas o venta de 
+            productos médicos. Nova Medic busca ser parte de las posibilidades que las 
+            personas tienen en nuestro país para recibir un diagnostico medico profesional. 
+            Por eso nuestra idea no va por el camino de una empresa privada en ganancias, si 
+            no en una posible org sin fines de lucro o una idea para implementar atreves de 
+            los servicios públicos del gobierno.
+            De esta forma nova Medic busca mejorar el sistema hospitalario, no suplantarlo, 
+            Nova Medic busca ser simplemente otra posibilidad más para poder atentos a 
+            nuestra salud apoyados por la tecnología</p>
+        </div>
+      </div>
+      
+      <section class="creadores-box" id="creadores">
+        <h3 class="display-5 Creadores-h3">Creadores</h3>
+      <div class="all-creadores">
+        <div class="creadores-cont">
+            <div class="container-creador1"></div>
+            <h3 class="nombre-creador" >creador</h3>
+        </div>
+        <div class="creadores-cont">
+            <div class="container-creador2"></div>
+            <h3 class="nombre-creador">creador</h3>
+        </div>
+        <div class="creadores-cont">
+            <div class="container-creador3"></div>
+            <h3 class="nombre-creador">creador</h3>
+        </div>
+        <div class="creadores-cont">
+            <div class="container-creador4"></div>
+            <h3 class="nombre-creador">creador</h3>
+        </div>
+        <div class="creadores-cont">
+            <div class="container-creador5"></div>
+            <h3 class="nombre-creador">creador</h3>
+        </div>
+    </div>
+     </section> 
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-primary text-white footer">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Company name
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Angular</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">React</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Vue</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Laravel</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(8, 7, 7, 0.05);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+<script src="js/index.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</body>
 </html>
