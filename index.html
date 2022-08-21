@@ -11,30 +11,39 @@
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
+      <div class="container">
           <img src="img/My project.png" width="90" height="90" class="d-inline-block align-top" alt="">
           <a class="navbar-brand fs-4" href="#" >NOVA MEDIC</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="# " >INICIO</a>
+                <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="#fondo" >INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="#" >REGISTRO</a>
+                <a class="nav-link fs-6 navbar-brand" href="#objetivos" >OBJETIVOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="#">INICIAR SESIÓN</a>
+                <a class="nav-link fs-6 navbar-brand" href="#misiones">MISION</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="#creadores">CREADORES</a>
               </li>
             </ul>
           </div>
-        </div>
+  
+      </div>
       </nav>
-      <div class="divfondo"></div>
+      <div class="divfondo" id="fondo">
+        <div class="bntsPrinc">
+          <a href="EmpezarConsulta.html"><button>Iniciar Sesion</button></a>
+          <a href="#"><button>Registro</button></a>
+      </div>
+      </div>
       
-      <div class="objetivos">
+      <div class="objetivos" id="objetivos">
         <img src="img/saludapoyada.jpg" class="imagensita">
         <div class="objetivo-text">
           <h3 class="display-5 objetivo-h3">Objetivos</h3>
@@ -57,7 +66,7 @@
       </div>
 
 
-    <div class="Mision">
+    <div class="Mision" id="misiones">
        <img src="img/imagen45.jpg" class="imagen-mision">
         <div class="Mision-text">
           <h3 class="display-5 Mision-h3">Mision</h3>
@@ -73,7 +82,7 @@
         </div>
       </div>
       
-      <section class="creadores-box">
+      <section class="creadores-box" id="creadores">
         <h3 class="display-5 Creadores-h3">Creadores</h3>
       <div class="all-creadores">
         <div class="creadores-cont">
