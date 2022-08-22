@@ -21,7 +21,7 @@ try{
         //Sesiones
         session_start();
         $sesion->setClienteActual($cltn->getId());
-        header("location: ../vistas/historialMedico.php");
+        header("location: ../vistas/historialmedico.php");
     }else{
         $error = "Error. Este correo ya esta en uso";
         include_once("../vistas/registro.php");

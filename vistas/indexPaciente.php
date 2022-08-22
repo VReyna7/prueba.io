@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Prueba</title>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <?php
-      if(!isset($_SESSION['cliente'])){
-        header('location: ../vistas/iniciosesion.php');
-      }
-    ?>
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
@@ -31,7 +25,7 @@
                 <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="#" >INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="IniciarConsulta.php" >INICIAR CONSULTA</a>
+                <a class="nav-link fs-6 navbar-brand" href="iniciarConsulta.html" >INICIAR CONSULTA</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fs-6 navbar-brand" href="#">CHAT</a>
