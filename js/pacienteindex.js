@@ -23,3 +23,10 @@ window.sr = ScrollReveal();
         origin: "left",
         distance: "100px"
     });
+
+
+    sr.reveal(".containerblack",{
+        duration: 3000,
+        origin: "left",
+        distance: "100px"
+    });
