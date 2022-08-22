@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2022 a las 06:57:09
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 22-08-2022 a las 13:47:57
+-- Versión del servidor: 5.7.36
+-- Versión de PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,7 +27,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `admin`
 --
 
-CREATE TABLE `admin` (
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL,
   `nombre` int(255) NOT NULL,
   `apellido` int(255) NOT NULL,
@@ -43,16 +44,26 @@ CREATE TABLE `admin` (
 -- Estructura de tabla para la tabla `cliente`
 --
 
-CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cliente`;
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `pass` varchar(55) NOT NULL,
+  `pass` varchar(60) NOT NULL,
   `correo` varchar(50) NOT NULL,
   `sexo` varchar(20) NOT NULL,
   `fecha_nac` date NOT NULL,
-  `id_historial` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_historial` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_historial` (`id_historial`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `pass`, `correo`, `sexo`, `fecha_nac`, `id_historial`) VALUES
+(20, 'Cristian ', 'Pineda', 'c4ca4238a0b923820dcc509a6f75849b', 'cristian.pineda2308@gmail.com', 'Hombre', '2022-08-09', 3);
 
 -- --------------------------------------------------------
 
@@ -60,8 +71,9 @@ CREATE TABLE `cliente` (
 -- Estructura de tabla para la tabla `doctor`
 --
 
-CREATE TABLE `doctor` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `doctor`;
+CREATE TABLE IF NOT EXISTS `doctor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `pass` varchar(55) NOT NULL,
@@ -69,7 +81,8 @@ CREATE TABLE `doctor` (
   `sexo` varchar(20) NOT NULL,
   `fecha_nac` date NOT NULL,
   `estado` int(11) DEFAULT NULL,
-  `titulos` varchar(150) DEFAULT NULL
+  `titulos` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,82 +91,26 @@ CREATE TABLE `doctor` (
 -- Estructura de tabla para la tabla `expediente`
 --
 
-CREATE TABLE `expediente` (
-  `id` int(11) NOT NULL,
-  `peso` varchar(50) NOT NULL,
-  `estatura` varchar(50) NOT NULL,
+DROP TABLE IF EXISTS `expediente`;
+CREATE TABLE IF NOT EXISTS `expediente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `peso` float NOT NULL,
+  `estatura` float NOT NULL,
   `sangre` varchar(50) NOT NULL,
   `alergia` varchar(150) NOT NULL,
   `psico` varchar(150) NOT NULL,
   `alerMedi` varchar(150) NOT NULL,
-  `id_cliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_cliente` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_cliente` (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `expediente`
 --
 
 INSERT INTO `expediente` (`id`, `peso`, `estatura`, `sangre`, `alergia`, `psico`, `alerMedi`, `id_cliente`) VALUES
-(8, '170', '1.75', 'A-', 'Si', 'Si', 'Si', 30),
-(9, '170', '1.75', 'A-', 'Si', 'Si', 'Si', 30);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_historial` (`id_historial`);
-
---
--- Indices de la tabla `doctor`
---
-ALTER TABLE `doctor`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `expediente`
---
-ALTER TABLE `expediente`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_cliente` (`id_cliente`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT de la tabla `doctor`
---
-ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `expediente`
---
-ALTER TABLE `expediente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+(3, 1, 1, 'O-', 'No', 'No', 'No', 20);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

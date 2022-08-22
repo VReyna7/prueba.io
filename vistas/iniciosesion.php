@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,15 @@
     <script src="../js/scrollreveal.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <title>Prueba</title>
+    <?php
+      if(isset($_SESSION['cliente'])){
+        header("location: ../vistas/indexPaciente.php");
+      }else if(isset($_SESSION['doctor'])){
+        header("location: ../vistas/indexDoctor.php");
+      }else if(isset($_SESSION['admin'])){
+        header("location: ../vistas/dashboard.php");
+      }
+    ?>
 </head>
 <body>
     <nav class="navbar  navbar-expand-lg navbar-dark bg-primary">
@@ -33,16 +43,16 @@
     </nav>
 
     <div class="div-form">
-      <form class="colorito" id="colorito">
+      <form class="colorito" id="colorito" method="POST" action="../controlador/crtInicioSesion.php">
         <label for="colorito" class="text-white fs-5">INICIO DE SESION</label>
         <div class="form-group text-white">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="mail" required>
           <small id="emailHelp" class="form-text text-white">Recuerda Nunca compartir ni tu correo , ni tu contraseña con alguien.</small>
         </div>
         <div class="form-group text-white">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass" required>
         </div>
         <input type="submit" class="btn btn-primary mx-auto" value="Iniciar sesión">
       </form>

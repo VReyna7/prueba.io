@@ -19,7 +19,7 @@ try{
     $exp->newExpediente();
     $exp->setExp();
     $exp->updateId();
-    header("location: ../vistas/dashboard.php");
+    header("location: ../vistas/indexPaciente.php");
 }catch (Exception $e){
     $error = $e->getMessage();
     include_once '../vistas/historialmedico.php';
