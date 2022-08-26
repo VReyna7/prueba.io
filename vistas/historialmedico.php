@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/historialmedico.css">
+    <link rel="stylesheet" href="../css/historialmedico.css?v=<?php echo time(); ?>">
     <script src="../js/scrollreveal.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <title>Prueba</title>
+    <title>Expediente medico</title>
+    <link rel="icon" href="../img/favicon.ico">
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
@@ -23,7 +24,7 @@
                 <a class="nav-link  fs-6 navbar-brand" aria-current="page" href="../index.html" >INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  fs-6 navbar-brand" href="iniciosesion.html" >INICIAR SESION</a>
+                <a class="nav-link  fs-6 navbar-brand" href="iniciosesion.php" >INICIAR SESION</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active fs-6 navbar-brand" href="#">REGISTRARSE</a>
@@ -155,8 +156,7 @@
    </div>
     
       
-      <!-- Footer -->
-<footer class="text-center text-lg-start bg-primary text-white footer">
+   <footer class="text-center text-lg-start bg-primary text-white footer">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
@@ -196,11 +196,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Company name
+            <i class="fas fa-gem me-3"></i>Nova-Medic.
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            Nosotros somos Nova-medic y queremos darte las Gracias por confiar tu salud en nosotros. Disfruta Nova-Medic
           </p>
         </div>
         <!-- Grid column -->
@@ -209,19 +208,19 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+           Web Site.
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <a href="#!" class="text-reset">Instagram</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">React</a>
+            <a href="#!" class="text-reset">Facebook</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <a href="#!" class="text-reset">Twitter</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Laravel</a>
+            <a href="#!" class="text-reset">Youtube</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -230,19 +229,19 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+            Sitios web.
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="#!" class="text-reset">Instagram</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
+            <a href="#!" class="text-reset">Facebook</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Orders</a>
+            <a href="#!" class="text-reset">Twitter</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Help</a>
+            <a href="#!" class="text-reset">Youtube</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -251,13 +250,13 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> El Salvador, San Salvador.</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@example.com
+            novamedic@gmail.com
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-phone me-3"></i> +503 7208-0960</p>
+          <p><i class="fas fa-print me-3"></i> +503 7208-0960</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -265,13 +264,6 @@
     </div>
   </section>
   <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(8, 7, 7, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
 </footer>
 <!-- Footer -->
 <script src="../js/iniciodesesion.js"></script>

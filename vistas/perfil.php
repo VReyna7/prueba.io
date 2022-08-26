@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pacienteindex.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/perfil.css?v=<?php echo time(); ?>">
     <script src="../js/scrollreveal.js"></script>
+    <script src="../js/editarPerfil.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Inicio</title>
+    <title>Prueba</title>
     <link rel="icon" href="../img/favicon.ico">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <?php
 	  require_once("../modelo/class.conexion.php");
 	  require_once("../modelo/class.cliente.php");
@@ -20,129 +20,105 @@
 	  require_once("../modelo/class.sesion.php");
 
     error_reporting(0);
-	    $userSession = new Sesion();
+
+	  $userSession = new Sesion();
 
 	    if(isset($_SESSION['doctor'])){
 		  $user = new Doctor();
 	  	$user->setDoctor($userSession->getDoctorActual());
+      $doctor = true;
 	    }elseif(isset($_SESSION['cliente'])){
 	  	$user = new Cliente();
 	    $user->setCliente($userSession->getClienteActual());
-	  }else{
-      header("location: ../vistas/iniciosesion.php");
-    }
-	
+	  }else
+		header("location: ../vistas/iniciosesion.php");
 	?>
-
 
 </head>
 <body>
+    <!--Barra de navegación-->
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-          <img src="../img/My project.png" width="90" height="90" class="d-inline-block align-top" alt="">
+        <img src="../img/Logo 2 real.png" width="90" height="90" class="d-inline-block align-top" alt="">
           <a class="navbar-brand fs-4" href="#" >NOVA MEDIC</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav mx-auto">
+            <?php 
+            if($doctor){
+              echo '<ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="#" >INICIO</a>
+                <a class="nav-link  fs-6 navbar-brand" aria-current="page" href="indexDoctor.php" >INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="iniciarConsulta.php" >INICIAR CONSULTA</a>
+                <a class="nav-link fs-6 navbar-brand" href="../vistas/aceptarConsultas.php" >INICIAR CONSULTA</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fs-6 navbar-brand" href="chat.html">CHAT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="perfil.php">PERFIL</a>
+                <a class="nav-link fs-6 navbar-brand active" href="../vistas/perfil.php">PERFIL</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fs-6 navbar-brand" href="../controlador/crtCerrarSesion.php">CERRAR SESION</a>
               </li>
-            </ul>
-          </div>
-  
-      </div>
-      </nav>
-      <!--<div class="divfondo" id="fondo">
-        <div class="bntsPrinc">
-          <a href="vistas/sesiones/iniciosesion.html"><button>Iniciar Sesion</button></a>
-          <a href="vistas/sesiones/registro.html"><button>Registro</button></a>
-      </div>
-      </div>
-     -->
-     <div class="info" id="info">
-        <div class="info-text">
-          <h3 class="display-5 objetivo-h3">Como Iniciar Consulta</h3>
-          <p class="p-objetivos" class="text-center text-wrap" >Para iniciar tu consulta de una forma muy eficaz tendras que siguir los siguientes pasos para poder obter tu consulta eficazmente que la realizaremos con pocos pasos a seguir.
-          </p>
-          <br>
-          <br>
-          <p class="p-objetivos" class="text-center text-wrap">
-            Paso 1: Tener una cuenta con todos tus datos correctos.</p>
-          <p class="p-objetivos" class="text-center text-wrap">Paso 2: Ingresar al apartado llamado "Iniciar Consulta" que se muestra arriba en el menu desplegable.</p>
-           <p class="p-objetivos" class="text-center text-wrap"> Paso 3: Leer Cada uno de las secciones que se encuentran y dar click al boton "INGRESAR" para observar la lista de medicos y seleccionar de todos ellos.</p> 
-            <p class="p-objetivos" class="text-center text-wrap">Paso 4: Solicitar una cita con un medico de tu preferencia.</p>
-      
-          </div>
-          <div id="carouselExampleSlidesOnly" class="carousel slide imagensita" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../img/iniciar con.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/iniciar con 2.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/iniciar cc.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-            </div>
-          </div>
-      </div>
-
-    
-      <div class="info2" id="info2">
-        <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="../img/chats-732x380.png" class="d-block w-200 imagen-info2" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="../img/chat.jpg" class="d-block w-200 imagen-info2" alt="...">
-            </div>
+            </ul>';
+            }else{
+              echo '  <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link  fs-6 navbar-brand" aria-current="page" href="indexPaciente.php" >INICIO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="../vistas/iniciarConsulta.php" >INICIAR CONSULTA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="chat.html">CHAT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand active" href="../vistas/perfil.php">PERFIL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-6 navbar-brand" href="../controlador/crtCerrarSesion.php">CERRAR SESION</a>
+              </li>
+            </ul>';
+            }
+            
+            ?>
+          
           </div>
         </div>
-         <div class="info2-text">
-           <h3 class="display-5 Mision-h3">Utiliza nuestro Chat</h3>
-           <p class="p-mision" class="text-center ">Ponte en contacto con un doctor utilizando nuestro chat, para ponerte en contacto ahora mismo con un doctor y atienda tus problemas de salud de una forma
-            rapida y segura, ya que nuestros doctores estan 100% capacidades para brindarte un exelente servicio y salaguardar tu salud. </p>
-         </div>
-       </div>
-
-       <div class="info3" id="info">
-        <div class="info-text">
-          <h3 class="display-5 objetivo-h3">Tu Perfil</h3>
-          <p class="p-objetivos" class="text-center text-wrap" >Gracias por ingresar a nuestro sitio. En tu perfil encontraras toda tu informacion de sebera importancia
-            la cual podras cambiar a tu disposicion al igual que tu expediente medico con el cual tendras el control correcto a la hora de solicitar una cita con un doctor.</p>
-          </div>
-          <div id="carouselExampleSlidesOnly" class="carousel slide imagensita" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../img/final.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/perfil final.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/perfil xd.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-            </div>
-          </div>
+    </nav>
+    <!--Perfil-->
+    <div class="contenedor">
+      <div class="encabezado">
+        <h3>Información Personal</h3>
+        <input type="button" name="editar"  value="Editar" onclick="activateInputs()">
       </div>
-     
-      <footer class="text-center text-lg-start bg-primary text-white footer">
+      <div class="contenido">
+        <div class="fotoPerfil">
+          <img src="../img/fotoperfil.webp">
+          <button class="uno">Cambiar foto de perfil</button>
+          <a href="../vistas/expediente.html"><button type="button"  class="btn btn-danger">Expediente Medico </button></a>
+        </div>
+        <div class="datosUsuario">
+          
+          <form>
+              <label>Nombre:</label><input type="text" id="nombre" disabled placeholder="Juanito">
+              <label>Apellido:</label><input type="text" id="apellido" disabled placeholder="Alcachofa">
+              <label>Correo Electrónico:</label><input type="email" id="email" disabled placeholder="Alcachofa@gmail.com">
+              <label>Contraseña:</label><input type="password" id="password" disabled placeholder="Alcachofa69">
+              <label id="confPasswordLabel">Confirmar Contraseña:</label><input type="password" id="confPassword" disabled placeholder="Alcachofa69">
+              <label>Sexo:</label><input type="text" id="sexo" disabled placeholder="Hombre">
+              <input type="submit" value="Confirmar Cambios" id="confCambios" class="confCambios" onclick="activateButton()">
+          </form>
+        </div> 
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-primary text-white footer">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
@@ -250,13 +226,13 @@
     </div>
   </section>
   <!-- Section: Links  -->
+
 </footer>
 <!-- Footer -->
+<script src="../js/perfil.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 
-<script src="../js/pacienteindex.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     
 </body>

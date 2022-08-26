@@ -1,15 +1,40 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pacienteindex.css">
+    <link rel="stylesheet" href="../css/pacienteindex.css?v=<?php echo time(); ?>">
     <script src="../js/scrollreveal.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Prueba</title>
+    <link rel="icon" href="../img/favicon.ico">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <?php
+	  require_once("../modelo/class.conexion.php");
+	  require_once("../modelo/class.cliente.php");
+	  require_once("../modelo/class.doctor.php");
+	  require_once("../modelo/class.sesion.php");
+
+    error_reporting(0);
+
+	  $userSession = new Sesion();
+	    if(isset($_SESSION['doctor'])){
+		  $user = new Doctor();
+	  	$user->setDoctor($userSession->getDoctorActual());
+	    }elseif(isset($_SESSION['cliente'])){
+	  	$user = new Cliente();
+	    $user->setCliente($userSession->getClienteActual());
+	    }else{
+        header("location: ../vistas/iniciosesion.php");
+      }
+		
+	?>
+
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
@@ -25,16 +50,16 @@
                 <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="#" >INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="IniciarConsulta.html" >INICIAR CONSULTA</a>
+                <a class="nav-link fs-6 navbar-brand" href="aceptarConsultas.php" >ACEPTAR CONSULTAS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fs-6 navbar-brand" href="#">CHAT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="#">PERFIL</a>
+                <a class="nav-link fs-6 navbar-brand" href="perfil.php">PERFIL</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="#">CERRAR SESION</a>
+                <a class="nav-link fs-6 navbar-brand" href="../controlador/crtCerrarSesion.php">CERRAR SESION</a>
               </li>
             </ul>
           </div>
@@ -48,25 +73,23 @@
       </div>
       </div>
      -->
-      <div class="info" id="info">
+     <div class="info" id="info">
         <div class="info-text">
           <h3 class="display-5 objetivo-h3">Como aceptar una consulta</h3>
-          <p class="p-objetivos" class="text-center text-wrap" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum</p>
+          <p class="p-objetivos" class="text-center text-wrap" >Hola Doctor!, Para poder apoyar a los usuarios a poder recibir una consulta
+            puedes ir al apartado de iniciar consulta en nuestro menu, en este te aparecen las solicitudes de los usuarios que han pedido
+            una consulta contigo, al presionar el boton y aceptar su solicitud, podras chatear con el para empezar su tratamiento. ¡Gracias por tu apoyo!.</p>
           </div>
           <div id="carouselExampleSlidesOnly" class="carousel slide imagensita" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="../img/imagen45.jpg" class="d-block w-200 imagensita" alt="...">
+                <img src="../img/check.jpg" class="d-block w-200 imagensita" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="../img/saludapoyada.jpg" class="d-block w-200 imagensita" alt="...">
+                <img src="../img/consulta-medica-internet.webp" class="d-block w-200 imagensita" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="../img/imagen45.jpg" class="d-block w-200 imagensita" alt="...">
+                <img src="../img/consulta-medica.jpg" class="d-block w-200 imagensita" alt="...">
               </div>
             </div>
           </div>
@@ -85,40 +108,33 @@
         </div>
          <div class="info2-text">
            <h3 class="display-5 Mision-h3">Utiliza nuestro Chat</h3>
-           <p class="p-mision" class="text-center ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum</p>
+           <p class="p-mision" class="text-center ">El chat nos da una mejor comunicacion con el paciente para poder resolver los problemas de salud que el paciente presente y claramente ser concientes
+            del uso adecuado de chat, para no llegar a incomodar al paciente y entregarle un buen servicio.  </p>
          </div>
        </div>
 
        <div class="info3" id="info">
         <div class="info-text">
           <h3 class="display-5 objetivo-h3">Visualizar expediente médico</h3>
-          <p class="p-objetivos" class="text-center text-wrap" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum</p>
+          <p class="p-objetivos" class="text-center text-wrap" >Realizar siempre la visualizacion del expediente medico de la persona antes de darle un diagnostico excelente y que no se presente una situacion 
+            en la cual puede llegar a perjudicar la vida del paciente.</p>
           </div>
           <div id="carouselExampleSlidesOnly" class="carousel slide imagensita" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="../img/imagen45.jpg" class="d-block w-200 imagensita" alt="...">
+                <img src="../img/expediente medic.jpg" class="d-block w-200 imagensita" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="../img/saludapoyada.jpg" class="d-block w-200 imagensita" alt="...">
+                <img src="../img/expedd.webp" class="d-block w-200 imagensita" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="../img/imagen45.jpg" class="d-block w-200 imagensita" alt="...">
+                <img src="../img/medicexped.webp" class="d-block w-200 imagensita" alt="...">
               </div>
             </div>
           </div>
       </div>
 
-      <!-- Footer -->
-<footer class="text-center text-lg-start bg-primary text-white footer">
+      <footer class="text-center text-lg-start bg-primary text-white footer">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
@@ -158,11 +174,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Company name
+            <i class="fas fa-gem me-3"></i>Nova-Medic.
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            Nosotros somos Nova-medic y queremos darte las Gracias por confiar tu salud en nosotros. Disfruta Nova-Medic
           </p>
         </div>
         <!-- Grid column -->
@@ -171,19 +186,19 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+           Web Site.
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <a href="#!" class="text-reset">Instagram</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">React</a>
+            <a href="#!" class="text-reset">Facebook</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <a href="#!" class="text-reset">Twitter</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Laravel</a>
+            <a href="#!" class="text-reset">Youtube</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -192,19 +207,19 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+            Sitios web.
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="#!" class="text-reset">Instagram</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
+            <a href="#!" class="text-reset">Facebook</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Orders</a>
+            <a href="#!" class="text-reset">Twitter</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Help</a>
+            <a href="#!" class="text-reset">Youtube</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -213,13 +228,13 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> El Salvador, San Salvador.</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@example.com
+            novamedic@gmail.com
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-phone me-3"></i> +503 7208-0960</p>
+          <p><i class="fas fa-print me-3"></i> +503 7208-0960</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -227,15 +242,10 @@
     </div>
   </section>
   <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(8, 7, 7, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
 </footer>
 <!-- Footer -->
+
+
 <script src="../js/pacienteindex.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
 

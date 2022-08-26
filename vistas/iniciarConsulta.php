@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pacienteindex.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/iniciarconsulta.css?v=<?php echo time(); ?>">
     <script src="../js/scrollreveal.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Inicio</title>
+    <title>Prueba</title>
     <link rel="icon" href="../img/favicon.ico">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -20,7 +20,8 @@
 	  require_once("../modelo/class.sesion.php");
 
     error_reporting(0);
-	    $userSession = new Sesion();
+
+	  $userSession = new Sesion();
 
 	    if(isset($_SESSION['doctor'])){
 		  $user = new Doctor();
@@ -28,11 +29,10 @@
 	    }elseif(isset($_SESSION['cliente'])){
 	  	$user = new Cliente();
 	    $user->setCliente($userSession->getClienteActual());
-	  }else{
-      header("location: ../vistas/iniciosesion.php");
-    }
-	
+	  }else
+		header("location: ../vistas/iniciosesion.php");
 	?>
+
 
 
 </head>
@@ -47,10 +47,10 @@
           <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link active fs-6 navbar-brand" aria-current="page" href="#" >INICIO</a>
+                <a class="nav-link  fs-6 navbar-brand" aria-current="page" href="indexPaciente.php" >INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 navbar-brand" href="iniciarConsulta.php" >INICIAR CONSULTA</a>
+                <a class="nav-link fs-6 navbar-brand active" href="iniciarConsulta.php" >INICIAR CONSULTA</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fs-6 navbar-brand" href="chat.html">CHAT</a>
@@ -73,75 +73,57 @@
       </div>
       </div>
      -->
-     <div class="info" id="info">
-        <div class="info-text">
-          <h3 class="display-5 objetivo-h3">Como Iniciar Consulta</h3>
-          <p class="p-objetivos" class="text-center text-wrap" >Para iniciar tu consulta de una forma muy eficaz tendras que siguir los siguientes pasos para poder obter tu consulta eficazmente que la realizaremos con pocos pasos a seguir.
-          </p>
-          <br>
-          <br>
-          <p class="p-objetivos" class="text-center text-wrap">
-            Paso 1: Tener una cuenta con todos tus datos correctos.</p>
-          <p class="p-objetivos" class="text-center text-wrap">Paso 2: Ingresar al apartado llamado "Iniciar Consulta" que se muestra arriba en el menu desplegable.</p>
-           <p class="p-objetivos" class="text-center text-wrap"> Paso 3: Leer Cada uno de las secciones que se encuentran y dar click al boton "INGRESAR" para observar la lista de medicos y seleccionar de todos ellos.</p> 
-            <p class="p-objetivos" class="text-center text-wrap">Paso 4: Solicitar una cita con un medico de tu preferencia.</p>
-      
-          </div>
-          <div id="carouselExampleSlidesOnly" class="carousel slide imagensita" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../img/iniciar con.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/iniciar con 2.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/iniciar cc.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-            </div>
-          </div>
-      </div>
-
-    
-      <div class="info2" id="info2">
-        <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="../img/chats-732x380.png" class="d-block w-200 imagen-info2" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="../img/chat.jpg" class="d-block w-200 imagen-info2" alt="...">
-            </div>
-          </div>
+      <div class="info" id="info">
+        <div class="fondoprimario">
         </div>
-         <div class="info2-text">
-           <h3 class="display-5 Mision-h3">Utiliza nuestro Chat</h3>
-           <p class="p-mision" class="text-center ">Ponte en contacto con un doctor utilizando nuestro chat, para ponerte en contacto ahora mismo con un doctor y atienda tus problemas de salud de una forma
-            rapida y segura, ya que nuestros doctores estan 100% capacidades para brindarte un exelente servicio y salaguardar tu salud. </p>
-         </div>
-       </div>
-
-       <div class="info3" id="info">
         <div class="info-text">
-          <h3 class="display-5 objetivo-h3">Tu Perfil</h3>
-          <p class="p-objetivos" class="text-center text-wrap" >Gracias por ingresar a nuestro sitio. En tu perfil encontraras toda tu informacion de sebera importancia
-            la cual podras cambiar a tu disposicion al igual que tu expediente medico con el cual tendras el control correcto a la hora de solicitar una cita con un doctor.</p>
-          </div>
-          <div id="carouselExampleSlidesOnly" class="carousel slide imagensita" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../img/final.jpg" class="d-block w-200 imagensita" alt="...">
+          <h3 class="display-5 objetivo-h3">CONSULTA GENERAL</h3>
+          <p class="p-objetivos" class="text-center text-wrap" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+            mollit anim id est laborum</p>
+             <div class="bntsPrinc">
+                  <a href="doctoresConsul.html"><button>Ingresar</button></a>
               </div>
-              <div class="carousel-item">
-                <img src="../img/perfil final.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../img/perfil xd.jpg" class="d-block w-200 imagensita" alt="...">
-              </div>
-            </div>
           </div>
       </div>
-     
+
+      <div class="info-mid" id="info-mid">
+        <div class="info-text">
+          <h3 class="display-5 objetivo-h3">PSICOLOGÍA</h3>
+          <p class="p-objetivos" class="text-center text-wrap" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+            mollit anim id est laborum</p>
+            <div class="bntsPrinc">
+                <a href="doctoresConsul.html"><button>Ingresar</button></a>
+            </div>
+          </div>
+          <div class="fondoprimario-mid">
+        </div>
+      </div>
+
+      <div class="info" id="info">
+        <div class="fondoprimario">
+        </div>
+        <div class="info-text">
+          <h3 class="display-5 objetivo-h3">NUTRICIONISTAS</h3>
+          <p class="p-objetivos" class="text-center text-wrap" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+            mollit anim id est laborum</p>
+
+             <div class="bntsPrinc">
+                  <a href="doctoresConsul.html"><button>Ingresar</button></a>
+              </div>
+ 
+          </div>
+      </div>
+
+
       <footer class="text-center text-lg-start bg-primary text-white footer">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -252,11 +234,10 @@
   <!-- Section: Links  -->
 </footer>
 <!-- Footer -->
-
 <script src="../js/pacienteindex.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     
 </body>
