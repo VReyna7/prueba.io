@@ -1,0 +1,99 @@
+.body{
+    overflow-x: hidden;
+}
+
+.contenedor{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+.fotoPerfil{
+    display: flex;
+    flex-wrap: wrap;
+    float:left ;
+    justify-content: center;
+    
+    padding: 40px;
+}
+
+.fotoPerfil img{
+    height: 120px;
+    width: 120px;
+    clip-path: circle(50% at 50% 50%);
+}
+
+
+.encabezado input:hover{
+    transform: scale(1.05);
+    transition: 1s;
+}
+
+.datosUsuario{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    color: black;
+}
+
+.datosUsuario form{
+    display: flex;
+    flex-direction: column;
+    outline: none;
+}
+
+.datosUsuario form input{
+    margin: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.datosUsuario form label{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: rgb(231, 0, 0);
+    font-size: 1.2em;
+}
+
+.confCambios:hover{
+    transform: scale(1.02);
+    transition: 1s;
+}
+
+.fotoPerfil button:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+@media screen and (max-width: 1000px){
+    .fotoPerfil img{
+        height: 150px;
+        width: 150px;
+    }
+    .fotoPerfil{
+        width: 100%;
+        height: fit-content;
+        border-bottom: 2px solid lightgray;
+        padding: 20px;
+    }
+    .datosUsuario{
+        width: 100%;
+    }
+}
