@@ -293,6 +293,9 @@ width: 200px;
 .OpChat form{
     width: 100%;
 }
+a{
+    margin-right: 5px;
+}
 
 /*seccio de envio de mensaje*/
 .textMSG{
@@ -336,7 +339,8 @@ width: 200px;
 }
 
 
-input[type="file"] {
+
+.call{
     display: none;
 }
 

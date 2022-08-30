@@ -74,154 +74,49 @@ body{
     font-weight: lighter;
 }
 
-
-/*efecto de ventana emergente*/
-.overlay {
+/*POP-UP*/
+.popUp {
+    background-color: white;
+    width: 50%;
+    height: 50%;
     display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: rgb(17, 61, 118);
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transition: opacity 500ms;
+    top: 35%;
+    left: 25%;
     visibility: hidden;
-    opacity: 0;
-    height: 100%;
-    color: black;
-}
-.overlay:target {
-    visibility: visible;
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-	align-items: center;
-    height: 100%;
-
 }
 
-
-
-/*caja padre*/
-#popupBody{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    min-width: 270px;
-    width: 40%;
-    height: 80%;
-    margin-top: 40%;
-    margin-bottom: 25%;
-    border-radius: 15px;
-    background: #FFF;
-    transition: all 500ms ease;
-    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
-    border: 1px solid #fcfcfc;
-    background-color: rgb(255, 255, 255);
-    border-radius: 3px;
-    color: rgb(0, 0, 0);
-    font-weight: lighter;
-
-}
-
-#popupBody div{
-    width: 70%;
-    margin: 5px;
-}
-/*caja 1*/
-#popupBody .caja1{
-    display: flex;
-    height: 20%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-.caja1 img{
-    width: 30%;
-}
-
-
-/*caja 2*/
-#popupBody .caja2{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-content: center;
-    align-items: center;
-    height: 40%;
-    width: 90%;
-}
-#popupBody .caja2 input{
-    background-color: rgb(255, 255, 255);
-    backdrop-filter: blur(15px);
-    border-radius: 3px;
-    color: rgb(0, 0, 0);
-    width: 70%;
-    font-weight: lighter; 
-    font-size: 110%;
-}
-#popupBody .caja2 #NP{
+.popUp h4 {
+    padding: 10px;
+    border-bottom: 2px solid rgb(17, 61, 118);
     text-align: center;
 }
-#popupBody .caja2 .Dess{
-    background-color: rgb(255, 255, 255);
-    backdrop-filter: blur(15px);
-    border-radius: 3px;
-    color: rgb(0, 0, 0);
-    width: 90%;
-    padding-bottom: 17%;
-    font-weight: lighter; 
+
+.popUp label {
+    color: rgb(17, 61, 118);
+    font-size: 1.2em;
+    font-weight: 600;
 }
-#popupBody .caja2 input::placeholder{
+
+.popUp input {
+    margin: 20px;
+}
+
+.btnPopUp {
+    background-color: #0d6efd;
     color: white;
-}
-
-
-/*caja 3*/
-#popupBody .caja3{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #0d6efd;
-}
-#popupBody .caja3 input{
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background-color: #0d6efd;
-    backdrop-filter: blur(15px);
-    border-radius: none;
-    color: rgb(0, 0, 0);
-    font-weight: lighter;
-    font-size: 1em; 
     padding: 10px;
-}
-#popupBody .caja3 input:hover{
-	background-color: #0d6efd;
-    border-radius: none;
-}
-
-
-/*boton de cerrar popup*/
-#cerrar{
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    background-color: #0d6efd  !important;
-    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: 0px;
 }
 
+.Dess {
+    outline: none;
+}
 
 @media screen and (max-width: 1000px){
 
