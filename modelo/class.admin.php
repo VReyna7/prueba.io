@@ -124,8 +124,9 @@ class Admin
         if (!$stmt) {
             throw new Exception("Error. Hubo un fallo en la base de datos");
         } else {
-            $id = $stmt->execute();
-            $this->id = $id;
+            $stmt->execute();
+            $datauser = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->id = $datauser['id'];
         }
     }
 
@@ -148,20 +149,19 @@ class Admin
             $this->correo = $datauser['correo'];
             $this->sexo = $datauser['sexo'];
             $this->fechaNac = $datauser['fecha_nac'];
-            $this->titulos = $datauser['titulos'];
             $this->estado = $datauser['estado'];
             $this->foto = $datauser['fotoPerfil'];
         }
     }
 
-    public function actuFoto($route)
+    public function actuFoto($route,$id)
     {
         $dbh = new Conexion;
         $conexion = $dbh->get_conexion();
         $sql = "update admin set fotoPerfil=:fotoPerfil where id=:id";
         $stmt = $conexion->prepare($sql);
         $stmt->bindParam(":fotoPerfil", $route);
-        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":id", $id);
         if (!$stmt) {
             throw new Exception("Error con la base de datos");
         } else {

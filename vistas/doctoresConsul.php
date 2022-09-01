@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/psicologia.css?v=<?php echo time(); ?>">
     <script src="../js/scrollreveal.js"></script>
+    <script src="../js/doctoresConsul.js"></script>
+    <script src="../js/popUp.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Prueba</title>
     <link rel="icon" href="../img/favicon.ico">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <?php
+	  require_once("../modelo/class.conexion.php");
+	  require_once("../modelo/class.cliente.php");
+	  require_once("../modelo/class.doctor.php");
+	  require_once("../modelo/class.sesion.php");
+    $category = isset($_GET['category'])?$_GET['category']:"";
+    error_reporting(0);
+	    $userSession = new Sesion();
+      $docs = New Doctor();
+	    if(isset($_SESSION['cliente'])){
+	  	$user = new Cliente();
+	    $user->setCliente($userSession->getClienteActual());
+	    }else{
+      header("location: ../vistas/iniciosesion.php");
+     }
+	
+	?>
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
@@ -39,50 +59,69 @@
               </li>
             </ul>
           </div>
-      </nav>
-    <div class="contenedor">
-      <h1>Médicos Disponibles</h1>
-      <div class="doctores">
-        <div class="fotoPerfil">
-          <img src="../img/fotoperfil.webp">
-          <?php 
-          echo '<button onclick="'."location.href='#popup'".'" class="iniciarConsulta">Publicar</button>';
-          ?>
-        </div>
-        <div class="informacion">
-          <h4><strong>Nombre:</strong> Juana Perez</h4>
-          <h4><strong>Especialidad:</strong> Médico General</h4>
-          <h4><strong>Estado:</strong> En línea</h4>
-          <h4><strong>Descripción:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
-            deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
-        </div>
-      </div>
-    </div>
-    <form action="../controlador/ctrlReportes.php" method="post">
-            <div id="popup" class="overlay">
-           
-           <div id="popupBody">
-               <div class="caja1">
-                   <img src="../img/logo real.png" alt="Rent a Professional">
-               </div>
-               <a id="cerrar" href="#">&times;</a>
-              
-               <div class="caja2">
-                   <input type="text" placeholder="Título:" id="titulo" name="titulo" required>
-                   <input type="text" placeholder="Descripción:" id="descripcion" name="descripcion" class="Dess" required>
-                   <input type="hidden" name="idClient" value="<?php echo $idC; ?>">   
-                   <input type="hidden" name="idPro" value="<?php echo $idP; ?>">  
-                   <input type="hidden" name="tipo" value="Client">
-               </div>
-               <h5>ATENCIÓN: Luego del Reporte sera trasferido a la pagina de chats</h5>
-               <div class="caja3">
-               <input type="submit" value="Reportar" name="publicar">
-               </div>
-               </div>
-           </div>
-           </form> 
+    </nav>
 
-      <!-- Footer -->
+  <div id="contKing">
+    <div class="contenedor" id="contenedor">
+      <h1>Médicos Disponibles</h1>
+      <?php 
+        if($category == "General"){
+          $cuentas =  $docs->docGenerales();
+          foreach ($cuentas as $mostrar){
+            echo '<div class="doctores">
+            <div class="fotoPerfil">
+              <img src="'.$mostrar["fotoPerfil"] .'">
+              <a href="consultacreacion.php?idDoc='.$mostrar["id"].'&category='.$category.'"><input type="button"  class="iniciarConsulta" id="iniciarConsulta" value="Iniciar Consulta"></a>
+            </div>
+            <div class="informacion">
+              <h4><strong>Nombre:</strong> '.  $mostrar["nombre"] . " " .$mostrar["apellido"] .'</h4>
+              <h4><strong>Especialidad:</strong> '. $mostrar["espec"] .'</h4>
+              <h4><strong>Estado:</strong> En línea</h4>
+              <h4><strong>Descripción:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
+              deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
+            </div></div>';
+          }
+        }else if($category == "Psico"){
+          $cuentas =  $docs->docPsicos();
+          foreach ($cuentas as $mostrar){
+            echo '<div class="doctores">
+            <div class="fotoPerfil">
+              <img src="'.$mostrar["fotoPerfil"] .'">
+              <a href="consultacreacion.php?idDoc='.$mostrar["id"].'&category='.$category.'"><input type="button"  class="iniciarConsulta" id="iniciarConsulta" value="Iniciar Consulta"></a>
+            </div>
+            <div class="informacion">
+              <h4><strong>Nombre:</strong> '.  $mostrar["nombre"] . " " .$mostrar["apellido"] .'</h4>
+              <h4><strong>Especialidad:</strong> '. $mostrar["espec"] .'</h4>
+              <h4><strong>Estado:</strong> En línea</h4>
+              <h4><strong>Descripción:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
+                deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
+            </div></div>';
+            }
+        }else if($category == "Nutri"){
+          $cuentas =  $docs->docNutri();
+          foreach ($cuentas as $mostrar){
+            echo '<div class="doctores">
+            <div class="fotoPerfil">
+              <img src="'.$mostrar["fotoPerfil"] .'">
+              <a href="consultacreacion.php?idDoc='.$mostrar["id"].'&category='.$category.'"><input type="button"  class="iniciarConsulta" id="iniciarConsulta" value="Iniciar Consulta"></a>
+            </div>
+            <div class="informacion">
+              <h4><strong>Nombre:</strong> '.  $mostrar["nombre"] . " " .$mostrar["apellido"] .'</h4>
+              <h4><strong>Especialidad:</strong> '. $mostrar["espec"] .'</h4>
+              <h4><strong>Estado:</strong> En línea</h4>
+              <h4><strong>Descripción:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
+                deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
+            </div></div>';
+            }
+        }
+        echo $idDoc;
+      ?>
+    </div>
+  </div>
+      </div>
+
+    
+    <!-- Footer -->
 <footer class="text-center text-lg-start bg-primary text-white footer">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">

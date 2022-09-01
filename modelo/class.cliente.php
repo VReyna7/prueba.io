@@ -87,6 +87,8 @@ class Cliente
         }
     }
 
+
+
     public function sesionCliente($user)
     {
         $dbh = new Conexion;
@@ -126,6 +128,22 @@ class Cliente
         }
     }
 
+    public function setExpediente($id)
+    {
+        $dbh = new Conexion;
+        $conexion = $dbh->get_conexion();
+        $sql = 'Select * from expediente where id=:id';
+        $stmt = $conexion->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        if (!$stmt) {
+            throw new Exception("Error. Hubo un fallo en la base de datos");
+        } else {
+            $stmt->execute();
+            $datauser = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+    }
+
+
     /*public function veriFoto($name, $ext)
     {
         if (isset($name) && isset($ext)) {
@@ -133,14 +151,14 @@ class Cliente
         }
     }*/
 
-    public function actuFoto($route)
+    public function actuFoto($route, $id)
     {
         $dbh = new Conexion;
         $conexion = $dbh->get_conexion();
         $sql = "update cliente set fotoPerfil=:fotoPerfil where id=:id";
         $stmt = $conexion->prepare($sql);
         $stmt->bindParam(":fotoPerfil", $route);
-        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":id", $id);
         if (!$stmt) {
             throw new Exception("Error con la base de datos");
         } else {

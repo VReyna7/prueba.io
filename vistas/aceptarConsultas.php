@@ -18,19 +18,23 @@
 	  require_once("../modelo/class.cliente.php");
 	  require_once("../modelo/class.doctor.php");
 	  require_once("../modelo/class.sesion.php");
+    require_once("../modelo/class.consulta.php");
 
     error_reporting(0);
 
 	  $userSession = new Sesion();
+    $consul = new Consulta();
+
 
 	    if(isset($_SESSION['doctor'])){
 		  $user = new Doctor();
 	  	$user->setDoctor($userSession->getDoctorActual());
-	    }elseif(isset($_SESSION['cliente'])){
-	  	$user = new Cliente();
-	    $user->setCliente($userSession->getClienteActual());
-	  }else
-		header("location: ../vistas/iniciosesion.php");
+      $consulta = $user->AceptarConsul($userSession->getDoctorActual());
+
+	    }else{
+		  header("location: ../vistas/iniciosesion.php");
+      } 
+      
 	?>
 
 </head>
@@ -64,42 +68,22 @@
       </nav>
     <div class="contenedor">
       <h1>Pacientes en lista de espera</h1>
-      <div class="doctores">
-        <div class="fotoPerfil">
-          <img src="../img/fotoperfil.webp">
-          <button class="iniciarConsulta">Iniciar Consulta</button>
-        </div>
-        <div class="informacion">
-          <h4><strong>Nombre:</strong> Juanito Alcachofa</h4>
-          <h4><strong>Estado:</strong> En línea</h4>
-          <h4><strong>Motivo de Consulta:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
-            deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
-        </div>
-      </div>
-      <div class="doctores">
-        <div class="fotoPerfil">
-          <img src="../img/fotoperfil.webp">
-          <button class="iniciarConsulta">Iniciar Consulta</button>
-        </div>
-        <div class="informacion">
-            <h4><strong>Nombre:</strong> Juanito Alcachofa</h4>
-            <h4><strong>Estado:</strong> En línea</h4>
-            <h4><strong>Motivo de Consulta:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
-              deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
-          </div>
-      </div>
-      <div class="doctores">
-        <div class="fotoPerfil">
-          <img src="../img/fotoperfil.webp">
-          <button class="iniciarConsulta">Iniciar Consulta</button>
-        </div>
-        <div class="informacion">
-            <h4><strong>Nombre:</strong> Juanito Alcachofa</h4>
-            <h4><strong>Estado:</strong> En línea</h4>
-            <h4><strong>Motivo de Consulta:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum amet laboriosam fugiat aperiam 
-              deserunt hic mollitia iure eaque voluptatum, quod explicabo modi</h4>
-          </div>
-      </div>
+      <?php 
+          foreach ($consulta as $mostrar){
+           echo '<div class="doctores">
+           <div class="fotoPerfil">
+             <img src="'.$consul->getImagenPerfil($mostrar["cliente"]).'">
+             <button class="iniciarConsulta">Iniciar Consulta</button>
+           </div>
+           <div class="informacion">
+             <h4><strong>Nombre:</strong> '.$consul->getNombreCompleto($mostrar["cliente"]).'</h4>
+             <h4><strong>Estado:</strong> En línea</h4>
+             <h4><strong>Motivo de Consulta:</strong> '.$mostrar["descripcion"].'</h4>
+             <h4><strong>Sexo:</strong> '.$consul->getSexo($mostrar["cliente"]).'</h4>
+           </div>
+         </div>';
+          }
+        ?>
     </div>
         
     </div>
