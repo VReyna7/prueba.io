@@ -75,30 +75,28 @@ body{
 }
 
 /*POP-UP*/
+.contPopUp{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    margin: 100px auto;
+}
+
 .popUp {
     background-color: white;
-    width: 50%;
-    height: 50%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     padding: 20px;
     color: rgb(17, 61, 118);
-    position: absolute;
-    top: 35%;
-    left: 25%;
-    visibility: hidden;
-}
-
-.popUp h4 {
-    padding: 10px;
-    border-bottom: 2px solid rgb(17, 61, 118);
-    text-align: center;
 }
 
 .popUp label {
     color: rgb(17, 61, 118);
     font-size: 1.2em;
     font-weight: 600;
+    margin-top: 10px;
 }
 
 .popUp input {
@@ -116,6 +114,35 @@ body{
 
 .Dess {
     outline: none;
+}
+
+.titClose{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(17, 61, 118);
+}
+
+#close{
+    padding: 5px;
+    width: 25px;
+    font-size:1.2em;
+    border-radius:5px;
+    border:0px;
+    outline: none;
+    background-color:red;
+    color: white;
+    font-weight: bolder;
+}
+
+#close:hover{
+    transform: scale(1.02);
+    transition: 1s;
+}
+
+.btnPopUp:hover{
+    transform: scale(1.02);
+    transition: 1s;
 }
 
 @media screen and (max-width: 1000px){
@@ -151,5 +178,10 @@ body{
 
     .informacion h4{
         font-size: 1.2em;
+    }
+    
+    .contPopUp{
+        width:100%;
+
     }
 }
